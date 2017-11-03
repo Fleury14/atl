@@ -5,7 +5,8 @@ import { LandingComponent } from './components/landing/landing.component';
 import { LoginComponent } from './components/login/login.component';
 import { TipComponent } from './components/tip/tip.component';
 
-const routes = [{
+const routes = [
+{
     path: 'home',
     component: LandingComponent
 },
@@ -19,7 +20,7 @@ const routes = [{
 },
 {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'tip',
     pathMatch: 'full'
 }
 ];
