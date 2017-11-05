@@ -20,7 +20,7 @@ const routes = [
 },
 {
     path: '',
-    redirectTo: 'tip',
+    redirectTo: 'home',
     pathMatch: 'full'
 }
 ];
