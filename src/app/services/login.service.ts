@@ -23,4 +23,8 @@ export class LoginService {
     public logout(): Promise<any> {
         return this._authService.auth.signOut();
     }
+
+    public getLoggedInUser(): Observable<firebase.User> {
+        return this._loggedInUser;
+    }
 }

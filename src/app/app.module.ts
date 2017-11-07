@@ -7,6 +7,9 @@ import { environment } from './../environments/environment';
 import { AngularFireModule} from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
+// import services
+import { LoginService } from './services/login.service';
+
 import { AppComponent } from './app.component';
 import { NavComponent } from './components/nav/nav.component';
 
@@ -22,7 +25,9 @@ import { NavComponent } from './components/nav/nav.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule
   ],
-  providers: [],
+  providers: [
+    LoginService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
