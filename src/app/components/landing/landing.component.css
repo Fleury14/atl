@@ -1,3 +1,42 @@
 .splash-screen {
     height: 300px;
 }
+
+.landing-cont {
+    float: left;
+    width: 33%;
+    height: 70vh;
+}
+
+
+.instructions {
+    width: 100%;
+    height: 30vh;
+    
+}
+
+.top-half {
+    height: 70vh;
+}
+
+.landing-button {
+    width: 50%;
+    height: 10vh;
+    background-color: #336699;
+    color: #fff;
+    border-radius: 5%;
+    font-size: 2em;
+}
+
+.clickable-section {
+    background-color: #90c9ff;
+    border: 2px solid #000;
+    box-shadow: 5px 5px 5px #000;
+    flex-direction: column;
+    color: #000;
+}
+
+.clickable-right {
+    box-shadow: -5px 5px 5px #000;
+}
+

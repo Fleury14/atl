@@ -1,3 +1,62 @@
 .tip-form-cont {
     height: 300px;
+    flex-direction: column;
+}
+
+.tip-go-back-container {
+    margin-bottom: 10vh;
+}
+
+.tip-form {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+.tip-input {
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.date {
+    margin-top: 5vh;
+}
+
+.tip-clickable {
+    background-color: #90c9ff;
+    border: 2px solid #000;
+    box-shadow: 5px 5px 5px #000;
+    flex-direction: column;
+    color: #000;
+    margin-top: 5vh;
+    width: 723px;
+}
+
+.tip-disclaimer {
+    margin-top: 10vh;
+}
+
+.tip-submit-button {
+    background-color: #90c9ff;
+    border: 2px solid #000;
+    box-shadow: 5px 5px 5px #000;
+    flex-direction: column;
+    color: #000;
+    margin-top: 2.5vh;
+    width: 723px;
+    height: 5vh;
+}
+
+.bottom-section {
+    margin-top: 10vh;
+    height: 15vh;
+}
+
+.tip-bottom-left {
+    float: left;
+    width: 75%;
+}
+
+.tip-bottom-right {
+    width: 25%;
+    float: right;
 }
