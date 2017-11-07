@@ -1,25 +1,23 @@
 
-<!-- <div class="flex-container justify-center">
-    
-</div>
-<div class="splash-screen flex-container justify-center align-center">
-    
-</div>
-<div class="flex-container justify-center">
-    
-</div> -->
 <div class="top-half">
-    <div class="landing-cont flex-container justify-center align-center">
-        <button routerLink="/login">Login</button>
+    <!-- Begin login section -->
+    <div routerLink="/login" class="landing-cont flex-container justify-center align-center clickable-section">
+        <h1 class="text-center title-text">Log in</h1>
+        <p class="text-center">Authorized employees only</p>
     </div>
+    <!-- End login, begin splaaaash -->
     <div class="landing-cont flex-container justify-center align-center">
         <h2>Splash Screen</h2>
     </div>
-    <div class="landing-cont flex-container justify-center align-center">
-        <button routerLink="/tip">Send Tip</button>
+    <!-- End splash, begin tip -->
+    <div routerLink="/tip" class="landing-cont flex-container justify-center align-center clickable-section clickable-right">
+        <h1 class="text-center title-text">Send Tip</h1>
+        <p>Give us your tips dog</p>
     </div>
+    <!-- end tip -->
 </div>
 
+<!-- Begin Bottom Half -->
 <div class="instructions flex-container justify-center align-center">
     <p>Instructions will go here yo</p>
 </div>
