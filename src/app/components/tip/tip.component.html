@@ -1,7 +1,24 @@
-<h1 class="text-center">Tip Component</h1>
+<h1 class="text-center">Send Anonymous Tip</h1>
+<div class="flex-container justify-center tip-go-back-container" routerLink="/home">
+    <div class="tip-clickable text-center">
+        <p>Go Back</p>
+    </div>    
+</div>
 <div class="tip-form-cont flex-container justify-center align-center">
-    Form will go here
+    <form class="tip-form">
+        <label>Input the tip you would like to sent</label><br>
+        <textarea rows="10" cols="100" class="tip-input"></textarea><br>
+        <label for="">I agree to the below disclaimer</label>
+        <input type="checkbox"><br>
+        <input type="submit" class="tip-submit-button flex-container justify-center align-center">
+    </form>
 </div>
-<div class="flex-container justify-center">
-    <button routerLink="/home">Go Back</button>
+<div class="bottom-section">
+    <div class="tip-bottom-left text-center">
+        <p>Disclaimer goes here</p>
+    </div>
+    <div class="tip-bottom-right text-center">
+        <p>Date goes here</p>
+    </div>
 </div>
+
