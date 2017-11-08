@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 
-Injectable()
+@Injectable()
 
 export class LoginService {
 
@@ -17,6 +17,7 @@ export class LoginService {
     }
 
     public login(): Promise<any> {
+        console.log('Logging in via google popup...');
         return this._authService.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider);
     }
 
