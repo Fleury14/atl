@@ -5,3 +5,4 @@
     <button (click)="logout()" [disabled]="!loggedInUser">Logout</button>
     <button routerLink="/home">Go Back</button>
 </div>
+<p>Date is {{ currentDate | date: 'medium' }}</p>

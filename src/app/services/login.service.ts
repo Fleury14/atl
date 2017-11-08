@@ -11,9 +11,11 @@ export class LoginService {
     // declare logged in user as observable
     private _loggedInUser: Observable<firebase.User>;
 
+
     // greab the logged in user as an observable from the fire auth service
     constructor( private _authService: AngularFireAuth ) {
         this._loggedInUser = _authService.authState;
+
     }
 
     public login(): Promise<any> {

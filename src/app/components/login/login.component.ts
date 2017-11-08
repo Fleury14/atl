@@ -13,6 +13,7 @@ import 'rxjs/add/operator/map';
 export class LoginComponent implements OnInit {
 
     public loggedInUser;
+    public currentDate: Date;
 
     ngOnInit() {
         this._loginService.getLoggedInUser()
@@ -20,6 +21,8 @@ export class LoginComponent implements OnInit {
                 this.loggedInUser = user;
                 console.log(this.loggedInUser);
             });
+
+        this.currentDate = new Date();
 
     }
 
