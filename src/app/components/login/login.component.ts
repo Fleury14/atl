@@ -35,7 +35,10 @@ export class LoginComponent implements OnInit {
     }
 
     public logout() {
-        this._loginService.logout();
+        if (confirm('Do you really wanna leave?')) {
+            this._loginService.logout();
+        }
+
     }
 
     // inject the login service into this component
