@@ -1,6 +1,8 @@
 <h1 class="text-center">Login Component</h1>
+<h2 class="text-center">Logged in as {{ loggedInUser?.displayName || 'Nobody' }}</h2>
 <div class="button-row flex-container">
-    <button>Login</button>
-    <button>Logout</button>
+    <button (click)="login()" [disabled]="loggedInUser">Login</button>
+    <button (click)="logout()" [disabled]="!loggedInUser">Logout</button>
     <button routerLink="/home">Go Back</button>
 </div>
+<p>Date is {{ currentDate | date: 'medium' }}</p>
