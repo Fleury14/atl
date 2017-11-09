@@ -5,12 +5,12 @@
     </div>    
 </div>
 <div class="tip-form-cont flex-container justify-center align-center">
-    <form class="tip-form">
+    <form #tipForm="ngForm" (ngSubmit)="submitTip(tipForm.value)" class="tip-form">
         <label>Input the tip you would like to sent</label><br>
-        <textarea rows="10" cols="100" class="tip-input"></textarea><br>
+        <textarea name="tipContent" ngModel rows="10" cols="100" class="tip-input" required></textarea><br>
         <label for="">I agree to the below disclaimer</label>
-        <input type="checkbox"><br>
-        <input name="tipContent" ngModel type="submit" class="tip-submit-button flex-container justify-center align-center">
+        <input type="checkbox" name="isAgreed" ngModel required><br>
+        <input type="submit" class="tip-submit-button flex-container justify-center align-center" [disabled]="tipForm.invalid">
     </form>
 </div>
 <div class="bottom-section">

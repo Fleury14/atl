@@ -13,6 +13,11 @@ export class TipComponent {
     private _tipForm: NgForm;
 
     public submitTip(formvalue: any) {
-        console.log(formvalue);
+        const thisTip = {
+            date: new Date(),
+            content: formvalue
+        };
+
+        console.log(thisTip);
     }
 }
