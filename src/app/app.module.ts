@@ -10,6 +10,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 
 // import services
 import { LoginService } from './services/login.service';
+import { TipService } from './services/tip.service';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './components/nav/nav.component';
@@ -28,7 +29,8 @@ import { NavComponent } from './components/nav/nav.component';
     FormsModule
   ],
   providers: [
-    LoginService
+    LoginService,
+    TipService
   ],
   bootstrap: [AppComponent]
 })
