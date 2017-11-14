@@ -23,7 +23,7 @@
         <!-- Begin for loop of tips -->
             
         <div class="tip-row" *ngFor="let tip of tips">
-            <div class="date-col">{{ tip.date }}</div>
+            <div class="date-col">{{ tip.date | date: 'medium' }}</div>
             <div class="tip-col">{{ tip.content }}</div>
         </div>
 

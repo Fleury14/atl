@@ -18,6 +18,11 @@
 </div>
 
 <!-- Begin Bottom Half -->
-<div class="instructions flex-container justify-center align-center">
+<div class="instructions justify-center align-center">
     <p>Instructions will go here yo</p>
+    <input type="text" [(ngModel)]="testText">
+    <input type="text" [(ngModel)]="testSize">
+    <h1 class="text-center">{{ testText }}</h1>
+    <h1 [style.color]="testText" [style.font-size]="testSize">CHANGE me</h1>
+  
 </div>

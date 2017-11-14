@@ -6,4 +6,11 @@ import { Component } from '@angular/core';
     styleUrls: [ './landing.component.css']
 })
 
-export class LandingComponent {}
+export class LandingComponent {
+    public testText: string;
+    public testSize: string;
+
+    constructor() {
+    }
+
+}
