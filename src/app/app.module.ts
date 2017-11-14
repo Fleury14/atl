@@ -27,7 +27,8 @@ import { NavComponent } from './components/nav/nav.component';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
   providers: [
     LoginService,
