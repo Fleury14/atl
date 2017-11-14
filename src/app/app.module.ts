@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule, RoutingComponents } from './app.routing.module';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 // import angular fire modules
 import { environment } from './../environments/environment';
