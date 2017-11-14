@@ -8,6 +8,7 @@ import ITip from './../interfaces/tip.interface';
 
 export class TipService {
 
+    // initialize http module in constructor and let user know in console that its up and running
     constructor( private http: Http ) {
         console.log('Tip service initialized...');
     }
