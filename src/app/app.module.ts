@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule, RoutingComponents } from './app.routing.module';
+import { FormsModule } from '@angular/forms';
 
 // import angular fire modules
 import { environment } from './../environments/environment';
@@ -23,7 +24,8 @@ import { NavComponent } from './components/nav/nav.component';
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    FormsModule
   ],
   providers: [
     LoginService
