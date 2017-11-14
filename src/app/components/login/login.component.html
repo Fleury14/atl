@@ -7,5 +7,19 @@
 </div>
 <p>Date is {{ currentDate | date: 'medium' }}</p>
 <div *ngIf="loggedInUser">
-<h2 class="text-center">Here are your tips, dawg.</h2>
+    <h2 class="text-center">Here are your tips, dawg.</h2>
+    <div class="container">
+        <div class="row">
+            <div class="date-col">
+                <h2>DATE</h2>
+            </div>
+            <div class="tip-col">
+                <h2>TIP</h2>
+            </div>
+        </div>
+        <div class="tip-row" *ngFor="let tip of tips">
+            <div class="date-col">{{ tip.date }}</div>
+            <div class="tip-col">{{ tip.content }}</div>
+        </div>
+    </div>
 </div>

@@ -45,8 +45,12 @@ export class LoginComponent implements OnInit {
 
     // inject the login service into this component as well as the tip service
     constructor( private _loginService: LoginService, private _tipService: TipService ) {
+
+        // call the getTasks function in the tip service to get all the tips from the database, and then suscribe to it in order
+        // to assign it to the variable tips
         this._tipService.getTasks()
             .subscribe(tips => {
+                console.log(tips);
                 this.tips = tips;
             });
     }
