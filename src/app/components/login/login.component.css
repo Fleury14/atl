@@ -2,3 +2,16 @@
     justify-content: space-around;
 }
 
+.date-col {
+    width: 40%;
+    float: left;
+}
+
+.tip-col {
+    width: 60%;
+    float: right;
+}
+
+.tip-row {
+    margin-bottom: 20px;
+}

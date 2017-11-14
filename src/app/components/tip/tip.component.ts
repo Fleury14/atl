@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-
 import { NgForm } from '@angular/forms';
+
+import { TipService } from './../../services/tip.service';
 
 @Component({
     selector: 'app-tip',
@@ -11,13 +12,23 @@ import { NgForm } from '@angular/forms';
 export class TipComponent {
 
     private _tipForm: NgForm;
+    public content: string;
+
+    constructor(private _tipService: TipService) {}
 
     public submitTip(formvalue: any) {
-        const thisTip = {
+        const newTip = {
             date: new Date(),
-            content: formvalue
+            content: this.content
         };
 
-        console.log(thisTip);
+        console.log(newTip);
+
+        this._tipService.addTip(newTip)
+        .subscribe(tip => {
+            this.content = '';
+        });
+
+
     }
 }

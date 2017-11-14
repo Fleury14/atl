@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule, RoutingComponents } from './app.routing.module';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 // import angular fire modules
 import { environment } from './../environments/environment';
@@ -10,6 +11,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 
 // import services
 import { LoginService } from './services/login.service';
+import { TipService } from './services/tip.service';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './components/nav/nav.component';
@@ -25,10 +27,12 @@ import { NavComponent } from './components/nav/nav.component';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
   providers: [
-    LoginService
+    LoginService,
+    TipService
   ],
   bootstrap: [AppComponent]
 })
