@@ -20,11 +20,7 @@ export class TipService {
     }
 
     public checkUser(id) {
-        return this.http.get('http://locaslhost:3000/api/contain/' + id)
-            .map(res => {
-                console.log('response', res);
-                res.json();
-            });
+        return this.http.get('http://localhost:3000/api/contain/' + id);
     }
 
     // this calls the api to add a new tip to the database that is sent in

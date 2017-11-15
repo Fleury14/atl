@@ -26,14 +26,22 @@ router.get('/tip/:id', function(req, res, next) {
 
 //check for username in database
 router.get('/contain/:id', function(req, res, next) {
-    db.tips.findOne({_id: mongojs.ObjectId(req.params.id)}, function (err, user) {
+    console.log(`Checking for a user name of ${req.params.id}`);
+    db.tips.findOne({user: req.params.id}, function (err, user) {
         if (err) {
             res.status(400);
             console.log('There was an error, so returning false');
-            return false;
+            res.send(err);
         } else {
-            console.log('no error, so assuming true??');
-            return true;
+            console.log(res.body, user);
+            console.log('no error, so checking result');
+            if(!user) {
+                console.log('No such user');
+                res.send(false);
+            } else {
+                console.log('I can has user!');
+                res.send(true);
+            }
         }
     });
 })
