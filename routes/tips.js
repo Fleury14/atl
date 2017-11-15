@@ -24,6 +24,20 @@ router.get('/tip/:id', function(req, res, next) {
     });
 });
 
+//check for username in database
+router.get('/contain/:id', function(req, res, next) {
+    db.tips.findOne({_id: mongojs.ObjectId(req.params.id)}, function (err, user) {
+        if (err) {
+            res.status(400);
+            console.log('There was an error, so returning false');
+            return false;
+        } else {
+            console.log('no error, so assuming true??');
+            return true;
+        }
+    });
+})
+
 // save tip
 router.post('/tip', function(req, res, next) {
     const tip = req.body;
@@ -33,7 +47,7 @@ router.post('/tip', function(req, res, next) {
             'error': 'Bad Data'
         });
     } else {
-        db.tips.save(tip, function(err, tip) {
+        db.tips.save(tip, function(err,  tip) {
             if (err) {
                 res.send(err);
             }
@@ -51,6 +65,8 @@ router.delete('/tip/:id', function(req, res, next) {
         res.json(tip)
     });
 });
+
+
 
 // update tip
 router.put('/tip/:id', function(req, res, next) {
