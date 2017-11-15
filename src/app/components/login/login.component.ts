@@ -43,6 +43,11 @@ export class LoginComponent implements OnInit {
 
     }
 
+    public userIdCheck() {
+        const result = this._tipService.checkUser('testuser');
+        console.log('result', result);
+    }
+
     // inject the login service into this component as well as the tip service
     constructor( private _loginService: LoginService, private _tipService: TipService ) {
 

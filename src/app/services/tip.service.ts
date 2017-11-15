@@ -19,6 +19,14 @@ export class TipService {
             .map(res => res.json());
     }
 
+    public checkUser(id) {
+        return this.http.get('http://locaslhost:3000/api/contain/' + id)
+            .map(res => {
+                console.log('response', res);
+                res.json();
+            });
+    }
+
     // this calls the api to add a new tip to the database that is sent in
     public addTip(newTip: ITip) {
         // create a new set of headers and add the content type
