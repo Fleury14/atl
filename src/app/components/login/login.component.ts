@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
     public currentDate: Date;
     public tips = [];
     public result;
+    public idChecker = 'testuser';
 
     // by using oninit, we call the loggedinuser method as soon as the page loads. we dont map the user object right now
     // but in the future, this would be a good idea. we then subscribe to it so that the loggedinuser updates after
@@ -50,6 +51,10 @@ export class LoginComponent implements OnInit {
             console.log('result', result);
         });
 
+    }
+
+    public viewPassCheck() {
+        
     }
 
     // inject the login service into this component as well as the tip service

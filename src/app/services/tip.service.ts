@@ -23,6 +23,10 @@ export class TipService {
         return this.http.get('http://localhost:3000/api/contain/' + id);
     }
 
+    public checkViewPass(id) {
+        return this.http.get('http://localhost:3000/viewpasscheck/' + id);
+    }
+
     // this calls the api to add a new tip to the database that is sent in
     public addTip(newTip: ITip) {
         // create a new set of headers and add the content type
