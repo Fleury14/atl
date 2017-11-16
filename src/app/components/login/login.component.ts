@@ -16,7 +16,9 @@ export class LoginComponent implements OnInit {
     public loggedInUser;
     public currentDate: Date;
     public tips = [];
-    public result;
+    public userIdResult;
+    public viewPassResult;
+    public idChecker = 'testuser';
 
     // by using oninit, we call the loggedinuser method as soon as the page loads. we dont map the user object right now
     // but in the future, this would be a good idea. we then subscribe to it so that the loggedinuser updates after
@@ -44,12 +46,26 @@ export class LoginComponent implements OnInit {
 
     }
 
-    public userIdCheck() {
-        this._tipService.checkUser('testuser')
+    public dataCheck() {
+        this.userIdCheck(this.idChecker);
+        this.viewPassCheck(this.idChecker);
+
+    }
+
+    public userIdCheck(id) {
+        this._tipService.checkUser(id)
         .subscribe(result => {
             console.log('result', result);
+            this.userIdResult = result;
         });
 
+    }
+
+    public viewPassCheck(id) {
+        this._tipService.checkViewPass(id)
+        .subscribe(result => {
+            this.viewPassResult = result;
+        });
     }
 
     // inject the login service into this component as well as the tip service

@@ -46,6 +46,28 @@ router.get('/contain/:id', function(req, res, next) {
     });
 })
 
+//check to see if user has a view password
+router.get('/viewpasscheck/:id', function(req, res, next) {
+    console.log(`Checking for a user name of ${req.params.id}`);
+    db.tips.findOne({user: req.params.id}, function (err, user) {
+        if (err) {
+            res.status(400);
+            console.log('There was an error, so returning false');
+            res.send(err);
+        } else {
+            console.log(res.body, user);
+            console.log('no error, so checking result');
+            if(!user.viewpass) {
+                console.log('No password to view');
+                res.send(false);
+            } else {
+                console.log('There is a password to view');
+                res.send(true);
+            }
+        }
+    });
+})
+
 // save tip
 router.post('/tip', function(req, res, next) {
     const tip = req.body;

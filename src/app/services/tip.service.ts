@@ -20,7 +20,15 @@ export class TipService {
     }
 
     public checkUser(id) {
-        return this.http.get('http://localhost:3000/api/contain/' + id);
+        return this.http.get('http://localhost:3000/api/contain/' + id)
+            .map(response => {
+                return response.json();
+            });
+    }
+
+    public checkViewPass(id) {
+        return this.http.get('http://localhost:3000/api/viewpasscheck/' + id)
+        .map(res => res.json());
     }
 
     // this calls the api to add a new tip to the database that is sent in
