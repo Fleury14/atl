@@ -1,11 +1,14 @@
 <h1 class="text-center">Login Component</h1>
 <h2 class="text-center">Logged in as {{ loggedInUser?.displayName || 'Nobody' }}</h2>
+<h3 *ngIf="loggedInUser">User id: {{ loggedInUser?.uid }}</h3>
 <div class="button-row flex-container">
     <button (click)="login()" [disabled]="loggedInUser">Login</button>
     <button (click)="logout()" [disabled]="!loggedInUser">Logout</button>
     <button routerLink="/home">Go Back</button>
 </div>
 <p>Date is {{ currentDate | date: 'medium' }}</p>
+
+<button (click)="userIdCheck()">Click to check if userID is in database</button>
 
 <!-- Begin tip display section. Note that with *ngIf, this will not display if there is not a user logged in -->
 <div *ngIf="loggedInUser">

@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
     public loggedInUser;
     public currentDate: Date;
     public tips = [];
+    public result;
 
     // by using oninit, we call the loggedinuser method as soon as the page loads. we dont map the user object right now
     // but in the future, this would be a good idea. we then subscribe to it so that the loggedinuser updates after
@@ -40,6 +41,14 @@ export class LoginComponent implements OnInit {
         if (confirm('Do you really wanna leave?')) {
             this._loginService.logout();
         }
+
+    }
+
+    public userIdCheck() {
+        this._tipService.checkUser('testuser')
+        .subscribe(result => {
+            console.log('result', result);
+        });
 
     }
 

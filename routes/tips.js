@@ -24,6 +24,28 @@ router.get('/tip/:id', function(req, res, next) {
     });
 });
 
+//check for username in database
+router.get('/contain/:id', function(req, res, next) {
+    console.log(`Checking for a user name of ${req.params.id}`);
+    db.tips.findOne({user: req.params.id}, function (err, user) {
+        if (err) {
+            res.status(400);
+            console.log('There was an error, so returning false');
+            res.send(err);
+        } else {
+            console.log(res.body, user);
+            console.log('no error, so checking result');
+            if(!user) {
+                console.log('No such user');
+                res.send(false);
+            } else {
+                console.log('I can has user!');
+                res.send(true);
+            }
+        }
+    });
+})
+
 // save tip
 router.post('/tip', function(req, res, next) {
     const tip = req.body;
@@ -33,7 +55,7 @@ router.post('/tip', function(req, res, next) {
             'error': 'Bad Data'
         });
     } else {
-        db.tips.save(tip, function(err, tip) {
+        db.tips.save(tip, function(err,  tip) {
             if (err) {
                 res.send(err);
             }
@@ -51,6 +73,8 @@ router.delete('/tip/:id', function(req, res, next) {
         res.json(tip)
     });
 });
+
+
 
 // update tip
 router.put('/tip/:id', function(req, res, next) {
