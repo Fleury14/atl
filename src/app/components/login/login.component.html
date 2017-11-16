@@ -12,7 +12,9 @@
 <p>Checking result for: {{ idChecker }}</p>
 <p>Is there a username? {{ userIdResult }}</p>
 <p>Is there a viewPassword? {{ viewPassResult }}</p>
-
+<h4 *ngIf="userIdResult === true && viewPassResult === true">User is authorized to view as long as password is provided.</h4>
+<h4 *ngIf="userIdResult === true && viewPassResult === false">User is in the database, but needs a view password</h4>
+<h4 *ngIf="!userIdResult">User is not in the database at all</h4>
 <!-- Begin tip display section. Note that with *ngIf, this will not display if there is not a user logged in -->
 <div *ngIf="loggedInUser">
     <h2 class="text-center">Here are your tips, dawg.</h2>
