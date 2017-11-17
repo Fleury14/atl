@@ -86,6 +86,29 @@ router.post('/tip', function(req, res, next) {
     }
 });
 
+// add tip to array inside document
+router.post('/array-tip', function(req, res, next) {
+    const testTip = {
+        date: 'sometime',
+        tip: 'sometip'
+    }
+    const incomingTip = {
+        date: req.body.date,
+        content: req.body.content
+    }
+    const targetUser = 'testuser';
+    db.tips.update(
+        { user: targetUser },
+        {$push: { tips: incomingTip }}, {}, function(err, tip) {
+            if (err) {
+                res.send(err);
+            }
+            res.send('Tip added... we think.');
+            console.log(`added the following tip to ${targetUser}:`, incomingTip);
+        }
+    );
+});
+
 // delete tip
 router.delete('/tip/:id', function(req, res, next) {
     db.tips.remove({_id: mongojs.ObjectId(req.params.id)}, function (err, tip) {
