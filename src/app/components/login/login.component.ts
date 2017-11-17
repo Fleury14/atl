@@ -28,9 +28,12 @@ export class LoginComponent implements OnInit {
             .subscribe( user => {
                 this.loggedInUser = user;
                 console.log(this.loggedInUser);
+                this.dataCheck(this.loggedInUser.uid);
             });
 
+
         this.currentDate = new Date();
+
 
     }
 
@@ -46,9 +49,18 @@ export class LoginComponent implements OnInit {
 
     }
 
-    public dataCheck() {
-        this.userIdCheck(this.idChecker);
-        this.viewPassCheck(this.idChecker);
+    public dataCheck(uid) {
+
+        if (!uid) {
+            console.log('No userID passed to datachecker, aborting.');
+            return;
+        }
+        this.userIdCheck(uid);
+        if (this.userIdResult === true ) {
+            this.viewPassCheck(uid);
+        } else {
+            this.viewPassResult = false;
+        }
 
     }
 
