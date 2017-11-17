@@ -103,9 +103,13 @@ export class LoginComponent implements OnInit {
             tips: []
         };
 
-        this._tipService.addUser(newUser);
-        this.pass1 = '';
-        this.pass2 = '';
+        this._tipService.addUser(newUser)
+        .subscribe(data => {
+            this.pass1 = '';
+            this.pass2 = '';
+            this.dataCheck(this.loggedInUser.uid);
+        });
+
 
     }
 

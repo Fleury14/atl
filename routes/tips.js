@@ -27,7 +27,7 @@ router.get('/tip/:id', function(req, res, next) {
 //check for username in database
 router.get('/contain/:id', function(req, res, next) {
     console.log(`Checking for a user name of ${req.params.id}`);
-    db.tips.findOne({user: req.params.id}, function (err, user) {
+    db.tips.findOne({uid: req.params.id}, function (err, user) {
         if (err) {
             res.status(400);
             console.log('There was an error, so returning false');
@@ -48,7 +48,7 @@ router.get('/contain/:id', function(req, res, next) {
 
 //check to see if user has a view password
 router.get('/viewpasscheck/:id', function(req, res, next) {
-    console.log(`Checking for a user name of ${req.params.id}`);
+    console.log(`Checking for a viewpassword on a user name of ${req.params.id}`);
     db.tips.findOne({user: req.params.id}, function (err, user) {
         if (err) {
             res.status(400);
@@ -92,7 +92,7 @@ router.post('/tip', function(req, res, next) {
 router.post('/add-user', function(req, res, next) {
     console.log('API Call recieved to post...');
     const tip = req.body;
-    if (!tip.content) {
+    if (!tip.uid) {
         res.status(400);
         res.json({
             'error': 'Bad Data'
