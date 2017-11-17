@@ -3,6 +3,7 @@ import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 import ITip from './../interfaces/tip.interface';
+import IUser from './../interfaces/user.interface';
 
 @Injectable()
 
@@ -43,13 +44,14 @@ export class TipService {
     }
 
        // this will add a user into the database, giving them a document with an empty tip array
-       public addUser(newUser) {
+    public addUser(newUser) {
         // create a new set of headers and add the content type
         const headers = new Headers();
         headers.append('Content-Type', 'application/json');
+        console.log('Sending the following user to database:', newUser);
 
         // return the post request mapped to a json
-        return this.http.post('http://localhost:3000/api/tip', JSON.stringify(newUser), {headers: headers})
+        return this.http.post('http://localhost:3000/api/add-user', JSON.stringify(newUser), {headers: headers})
             .map(res => res.json);
     }
 

@@ -5,6 +5,8 @@ import { TipService } from './../../services/tip.service';
 
 import 'rxjs/add/operator/map';
 
+import IUser from './../../interfaces/user.interface';
+
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
@@ -94,14 +96,16 @@ export class LoginComponent implements OnInit {
             return;
         }
 
-        const newUser = {
+        const newUser: IUser = {
             name: this.loggedInUser.displayName,
-            id: this.loggedInUser.uid,
+            uid: this.loggedInUser.uid,
             viewpass: this.pass1,
             tips: []
         };
 
-        console.log(newUser);
+        this._tipService.addUser(newUser);
+        this.pass1 = '';
+        this.pass2 = '';
 
     }
 

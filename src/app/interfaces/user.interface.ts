@@ -4,3 +4,5 @@ interface IUser {
     viewpass: string;
     tips: Object[];
 }
+
+export default IUser;

@@ -70,6 +70,7 @@ router.get('/viewpasscheck/:id', function(req, res, next) {
 
 // save tip
 router.post('/tip', function(req, res, next) {
+    console.log('API Call recieved to post...');
     const tip = req.body;
     if (!tip.content) {
         res.status(400);
@@ -81,6 +82,27 @@ router.post('/tip', function(req, res, next) {
             if (err) {
                 res.send(err);
             }
+            console.log('Saving following tip to db:', tip);
+            res.json(tip);
+        });
+    }
+});
+
+// save user
+router.post('/add-user', function(req, res, next) {
+    console.log('API Call recieved to post...');
+    const tip = req.body;
+    if (!tip.content) {
+        res.status(400);
+        res.json({
+            'error': 'Bad Data'
+        });
+    } else {
+        db.tips.save(tip, function(err,  tip) {
+            if (err) {
+                res.send(err);
+            }
+            console.log('Saving following tip to db:', tip);
             res.json(tip);
         });
     }
