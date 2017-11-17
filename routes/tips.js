@@ -92,14 +92,19 @@ router.post('/array-tip', function(req, res, next) {
         date: 'sometime',
         tip: 'sometip'
     }
+    const incomingTip = {
+        date: req.body.date,
+        content: req.body.content
+    }
     const targetUser = 'testuser';
     db.tips.update(
         { user: targetUser },
-        {$push: { tips: testTip }}, {}, function(err, tip) {
+        {$push: { tips: incomingTip }}, {}, function(err, tip) {
             if (err) {
                 res.send(err);
             }
             res.send('Tip added... we think.');
+            console.log(`added the following tip to ${targetUser}:`, incomingTip);
         }
     );
 });
