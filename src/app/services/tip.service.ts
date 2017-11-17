@@ -42,6 +42,17 @@ export class TipService {
             .map(res => res.json);
     }
 
+       // this will add a user into the database, giving them a document with an empty tip array
+       public addUser(newUser) {
+        // create a new set of headers and add the content type
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+
+        // return the post request mapped to a json
+        return this.http.post('http://localhost:3000/api/tip', JSON.stringify(newUser), {headers: headers})
+            .map(res => res.json);
+    }
+
     public pushTip(newTip) {
         // instead of posting an entire document to the collection in the database, this pushes one object into the tip array
         // inside the document of the user who is currently logged in. at least thats what this will eventually do, lol
