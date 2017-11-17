@@ -28,7 +28,10 @@ export class LoginComponent implements OnInit {
             .subscribe( user => {
                 this.loggedInUser = user;
                 console.log(this.loggedInUser);
-                this.dataCheck(this.loggedInUser.uid);
+                if (this.loggedInUser) {
+                    this.dataCheck(this.loggedInUser.uid);
+                }
+
             });
 
 
