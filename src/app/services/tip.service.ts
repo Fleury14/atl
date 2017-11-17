@@ -49,7 +49,7 @@ export class TipService {
         headers.append('Content-Type', 'application/json');
 
         return this.http.post('http://localhost:3000/api/array-tip', null , {headers: headers} )
-            .map(res => res.json());
+            .map(res => res.json);
     }
 
     // this method deletes the tip given the correct id
