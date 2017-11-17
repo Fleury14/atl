@@ -20,6 +20,11 @@ export class LoginComponent implements OnInit {
     public viewPassResult;
     public idChecker = 'testuser';
 
+    // ngModels for password entry
+    public pass1: string;
+    public pass2: string;
+    private _passwordError = false;
+
     // by using oninit, we call the loggedinuser method as soon as the page loads. we dont map the user object right now
     // but in the future, this would be a good idea. we then subscribe to it so that the loggedinuser updates after
     // user changes.
@@ -81,6 +86,23 @@ export class LoginComponent implements OnInit {
         .subscribe(result => {
             this.viewPassResult = result;
         });
+    }
+
+    public submitNewUser() {
+        if (this.pass1 === '' || (!this.pass1)) {
+            this._passwordError = true;
+            return;
+        }
+
+        const newUser = {
+            name: this.loggedInUser.displayName,
+            id: this.loggedInUser.uid,
+            viewpass: this.pass1,
+            tips: []
+        };
+
+        console.log(newUser);
+
     }
 
     // inject the login service into this component as well as the tip service
