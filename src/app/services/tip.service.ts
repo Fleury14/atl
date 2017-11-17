@@ -42,13 +42,13 @@ export class TipService {
             .map(res => res.json);
     }
 
-    public pushTip() {
+    public pushTip(newTip) {
         // instead of posting an entire document to the collection in the database, this pushes one object into the tip array
         // inside the document of the user who is currently logged in. at least thats what this will eventually do, lol
         const headers = new Headers();
         headers.append('Content-Type', 'application/json');
 
-        return this.http.post('http://localhost:3000/api/array-tip', null , {headers: headers} )
+        return this.http.post('http://localhost:3000/api/array-tip', JSON.stringify(newTip), {headers: headers} )
             .map(res => res.json);
     }
 
