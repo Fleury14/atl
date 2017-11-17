@@ -33,9 +33,16 @@ export class TipComponent {
     }
 
     public submitTipIntoArray() {
-        this._tipService.pushTip()
+
+        const newTip = {
+            date: new Date(),
+            content: this.content
+        };
+
+        this._tipService.pushTip(newTip)
         .subscribe( data => {
             console.log( 'We good?');
+            this.content = '';
         });
     }
 }
