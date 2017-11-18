@@ -17,6 +17,7 @@ export class TipComponent {
     public content: string;
     public loggedInUser;
 
+    // inject tip and login service
     constructor(private _tipService: TipService, private _loginService: LoginService) {
         this._loginService.getLoggedInUser()
         .subscribe( user => {
@@ -25,6 +26,7 @@ export class TipComponent {
 
     }
 
+    // DEPRECATED: submit a tip in the form of one document per tip
     public submitTip(formvalue: any) {
         const newTip = {
             date: new Date(),
@@ -41,6 +43,7 @@ export class TipComponent {
 
     }
 
+    // submits a tip into the array 'tips' of the document that matches up with the current logged in users id
     public submitTipIntoArray() {
 
         const newTip = {
