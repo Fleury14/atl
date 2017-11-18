@@ -49,7 +49,7 @@ router.get('/contain/:id', function(req, res, next) {
 //check to see if user has a view password
 router.get('/viewpasscheck/:id', function(req, res, next) {
     console.log(`Checking for a viewpassword on a user name of ${req.params.id}`);
-    db.tips.findOne({user: req.params.id}, function (err, user) {
+    db.tips.findOne({uid: req.params.id}, function (err, user) {
         if (err) {
             res.status(400);
             console.log('There was an error, so returning false');
