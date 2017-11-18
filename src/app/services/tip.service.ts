@@ -33,7 +33,14 @@ export class TipService {
     }
 
     public verifyViewPass(id, pass) {
-        return this.http.get('http://localhost:3000/api/viewpassverify/' + id)
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        const req = {
+            viewpass: pass,
+            uid: id
+        };
+
+        return this.http.post('http://localhost:3000/api/viewpassverify/' + id, JSON.stringify(req), {headers: headers})
         .map(res => res.json());
     }
 

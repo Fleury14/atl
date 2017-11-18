@@ -73,7 +73,7 @@ router.get('/viewpasscheck/:id', function(req, res, next) {
 })
 
 //verify viewpassword is correct
-router.get('/viewpassverify/:id', function(req, res, next) {
+router.post('/viewpassverify/:id', function(req, res, next) {
     console.log(`Checking for a matching passwords on a user id of ${req.params.id}`);
     console.log(`inputted password = ${req.body.viewpass}`)
     db.tips.findOne({uid: req.params.id}, function (err, user) {
@@ -92,7 +92,7 @@ router.get('/viewpassverify/:id', function(req, res, next) {
                 console.log('Passwords match');
                 res.send(true);
             } else {
-                console.log('There is a password to view');
+                console.log('Passwords do not match');
                 res.send(false);
             }
         }

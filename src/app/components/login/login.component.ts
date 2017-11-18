@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
     public tips = [];
     public userIdResult;
     public viewPassResult;
+    public canViewTips = false;
     public idChecker = 'testuser';
 
     // ngModels for password entry
@@ -75,6 +76,17 @@ export class LoginComponent implements OnInit {
         //     this.viewPassResult = false;
         // }
 
+    }
+
+    public viewTips() {
+        const password = prompt('Input your viewing password');
+        this._tipService.verifyViewPass(this.loggedInUser.uid, password)
+        .subscribe(res => {
+            if (res === false) {
+                alert('Incorrect Password');
+            }
+            this.canViewTips = res;
+        });
     }
 
     public userIdCheck(id) {
