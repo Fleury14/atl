@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit {
                 console.log(this.loggedInUser);
                 if (this.loggedInUser) {
                     this.dataCheck(this.loggedInUser.uid);
+                    console.log('running initial check...');
                 }
 
             });
@@ -66,11 +67,13 @@ export class LoginComponent implements OnInit {
             return;
         }
         this.userIdCheck(uid);
-        if (this.userIdResult === true ) {
-            this.viewPassCheck(uid);
-        } else {
-            this.viewPassResult = false;
-        }
+        this.viewPassCheck(uid);
+        // if (this.userIdResult === true ) {
+        //     this.viewPassCheck(uid);
+        // } else {
+        //     console.log('failed conditional');
+        //     this.viewPassResult = false;
+        // }
 
     }
 

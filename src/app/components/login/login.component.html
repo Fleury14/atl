@@ -8,7 +8,7 @@
 </div>
 <p>Date is {{ currentDate | date: 'medium' }}</p>
 <hr>
-<!-- <button (click)="dataCheck()">Click to check if userID is in database</button> -->
+<button (click)="dataCheck(this.loggedInUser.uid)">Click to check if userID is in database</button>
 <p>Checking result for: {{ idChecker }}</p>
 <p>Is there a username? {{ userIdResult }}</p>
 <p>Is there a viewPassword? {{ viewPassResult }}</p>

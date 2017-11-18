@@ -54,6 +54,10 @@ router.get('/viewpasscheck/:id', function(req, res, next) {
             res.status(400);
             console.log('There was an error, so returning false');
             res.send(err);
+        } else if (user === null) {
+            console.log('could not find user, therefore viewpass has to be false');
+            res.send(false);
+            return;
         } else {
             console.log(res.body, user);
             console.log('no error, so checking result');
