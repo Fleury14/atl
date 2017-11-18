@@ -140,7 +140,7 @@ router.post('/add-user', function(req, res, next) {
 });
 
 // add tip to array inside document
-router.post('/array-tip', function(req, res, next) {
+router.post('/array-tip/:id', function(req, res, next) {
     const testTip = {
         date: 'sometime',
         tip: 'sometip'
@@ -149,7 +149,7 @@ router.post('/array-tip', function(req, res, next) {
         date: req.body.date,
         content: req.body.content
     }
-    const targetUser = 'testuser';
+    const targetUser = req.params.id;
     db.tips.update(
         { user: targetUser },
         {$push: { tips: incomingTip }}, {}, function(err, tip) {
