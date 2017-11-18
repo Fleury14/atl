@@ -14,17 +14,23 @@ export class TipService {
         console.log('Tip service initialized...');
     }
 
-    // this is the method to call the back end api and get all the tips from the database, and .map it to a json
+    // this is the method to call the back end api and get all the tips from the database, and .map it to a json (DEPRECATED)
     getTasks() {
         return this.http.get('http://localhost:3000/api/tips')
             .map(res => res.json());
     }
 
+    // this method brings back the entire document from the database thaqt contains the user id from google.
+    // NOTE: in the future, try to .map the result so it only sends the tip array as opposed to the whole document
+    // for security reasons 
     public getTipsByUid(id) {
         return this.http.get('http://localhost:3000/api/tip-uid/' + id)
             .map(res => res.json());
     }
 
+    // Checks the database to see if there is a document in the database tht container the logged in users id.
+    // returns either true/false
+    // essentially, this is used to check and see if the user needs to have a tip array initialized
     public checkUser(id) {
         return this.http.get('http://localhost:3000/api/contain/' + id)
             .map(response => {
@@ -32,11 +38,15 @@ export class TipService {
             });
     }
 
+    // Check the database to see if that there is a viewing password associated with the document that conatins passed id
+    // In theory this should always return true if there is a user because creation of the document requires a viewpass
     public checkViewPass(id) {
         return this.http.get('http://localhost:3000/api/viewpasscheck/' + id)
         .map(res => res.json());
     }
 
+    // verifies that the password inputted matches the view password in the database. the correct password is only kept on the
+    // backend for security purposes
     public verifyViewPass(id, pass) {
         const headers = new Headers();
         headers.append('Content-Type', 'application/json');
