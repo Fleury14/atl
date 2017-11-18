@@ -24,6 +24,17 @@ router.get('/tip/:id', function(req, res, next) {
     });
 });
 
+// get single tip via userid
+router.get('/tip-uid/:id', function(req, res, next) {
+    console.log(`TIP-UID: Searching for tip with uid ${req.params.id}`);
+    db.tips.findOne({uid: req.params.id}, function (err, tip) {
+        if (err) {
+            res.send(err);
+        }
+        res.json(tip)
+    });
+});
+
 //check for username in database
 router.get('/contain/:id', function(req, res, next) {
     console.log(`Checking for a user name of ${req.params.id}`);
