@@ -152,7 +152,7 @@ router.post('/array-tip/:id', function(req, res, next) {
     }
     const targetUser = req.params.id;
     db.tips.update(
-        { user: targetUser },
+        { uid: targetUser },
         {$push: { tips: incomingTip }}, {}, function(err, tip) {
             if (err) {
                 res.send(err);
