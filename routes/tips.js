@@ -72,6 +72,33 @@ router.get('/viewpasscheck/:id', function(req, res, next) {
     });
 })
 
+//verify viewpassword is correct
+router.get('/viewpassverify/:id', function(req, res, next) {
+    console.log(`Checking for a matching passwords on a user id of ${req.params.id}`);
+    console.log(`inputted password = ${req.body.viewpass}`)
+    db.tips.findOne({uid: req.params.id}, function (err, user) {
+        if (err) {
+            res.status(400);
+            console.log('There was an error, so returning false');
+            res.send(err);
+        } else if (user === null) {
+            console.log('could not find user, therefore viewpass has to be false');
+            res.send(false);
+            return;
+        } else {
+            console.log(res.body, user);
+            console.log('no error, so checking result');
+            if(user.viewpass === req.body.viewpass) {
+                console.log('Passwords match');
+                res.send(true);
+            } else {
+                console.log('There is a password to view');
+                res.send(false);
+            }
+        }
+    });
+})
+
 // save tip
 router.post('/tip', function(req, res, next) {
     console.log('API Call recieved to post...');
