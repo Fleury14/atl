@@ -20,6 +20,11 @@ export class TipService {
             .map(res => res.json());
     }
 
+    public getTipsByUid(id) {
+        return this.http.get('http://localhost:3000/api/tip-uid/' + id)
+            .map(res => res.json());
+    }
+
     public checkUser(id) {
         return this.http.get('http://localhost:3000/api/contain/' + id)
             .map(response => {

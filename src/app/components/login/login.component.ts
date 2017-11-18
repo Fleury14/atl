@@ -22,6 +22,8 @@ export class LoginComponent implements OnInit {
     public viewPassResult;
     public canViewTips = false;
     public idChecker = 'testuser';
+    public uidDocument;
+    public userTips = [];
 
     // ngModels for password entry
     public pass1: string;
@@ -85,7 +87,17 @@ export class LoginComponent implements OnInit {
             if (res === false) {
                 alert('Incorrect Password');
             }
+            this.getTipsByUid();
             this.canViewTips = res;
+
+        });
+    }
+
+    public getTipsByUid() {
+        this._tipService.getTipsByUid(this.loggedInUser.uid)
+        .subscribe( res => {
+            this.userTips = res.tips;
+            console.log(this.userTips);
         });
     }
 
