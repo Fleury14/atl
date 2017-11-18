@@ -141,10 +141,11 @@ router.post('/add-user', function(req, res, next) {
 
 // add tip to array inside document
 router.post('/array-tip/:id', function(req, res, next) {
-    const testTip = {
-        date: 'sometime',
-        tip: 'sometip'
-    }
+    console.log(`Posting the following tip to userid ${req.params.id}: ${req.body}`);
+    // const testTip = {
+    //     date: 'sometime',
+    //     tip: 'sometip'
+    // }
     const incomingTip = {
         date: req.body.date,
         content: req.body.content

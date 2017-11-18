@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { TipService } from './../../services/tip.service';
+import { LoginService } from './../../services/login.service';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
     selector: 'app-tip',
@@ -13,8 +15,15 @@ export class TipComponent {
 
     private _tipForm: NgForm;
     public content: string;
+    public loggedInUser;
 
-    constructor(private _tipService: TipService) {}
+    constructor(private _tipService: TipService, private _loginService: LoginService) {
+        this._loginService.getLoggedInUser()
+        .subscribe( user => {
+            this.loggedInUser = user;
+        });
+
+    }
 
     public submitTip(formvalue: any) {
         const newTip = {
@@ -39,7 +48,7 @@ export class TipComponent {
             content: this.content
         };
 
-        this._tipService.pushTip(newTip)
+        this._tipService.pushTip(newTip, this.loggedInUser.uid)
         .subscribe( data => {
             console.log( 'We good?');
             this.content = '';
